@@ -28,7 +28,6 @@ const displayCategoryDetails = (news) => {
 }
 
 const processData = (news) => {
-    console.log(news);
 
     const categoryDetails = document.getElementById('category-details');
     categoryDetails.textContent = '';
@@ -50,7 +49,7 @@ const processData = (news) => {
         <div class="card-body mb-2">
         <h5 class="card-title">${category.title}</h5>
         <div>
-        <p class="card-text text" >${category.details}</p>
+        <p class="card-text text " >${category.details}</p>
         </div>
         </div>
         <div class="d-flex  justify-content-evenly">

@@ -13,7 +13,6 @@ const displayCategory = (categoryList) => {
     // display all category
     categoryList.forEach(category => {
         
-        
         const categoryDiv = document.createElement('li');
         categoryDiv.classList.add('nav-item');
        
