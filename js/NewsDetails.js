@@ -71,7 +71,6 @@ const processData = (news) => {
         </div>
         </div>`;
 
-
         categoryDetails.appendChild(categoryDetailsDiv);
         count++;
     })

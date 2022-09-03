@@ -4,12 +4,11 @@ const loadEveryNewsDetails = (news_id) => {
         .then(res => res.json())
         .then(data => detailsOfNews(data.data[0]))
         .catch((error) => {
-            console.log(error)
+            console.log(error);
         });
 }
 
 const detailsOfNews = (newses) => {
-    console.log(newses)
     const modalTitle = document.getElementById('newsDetailModalLabel');
     modalTitle.innerText = newses.title;
     const newsDetails = document.getElementById('news-details');

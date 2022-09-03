@@ -4,7 +4,7 @@ const loadCategory = () => {
         .then(res => res.json())
         .then(data => displayCategory(data.data.news_category))
         .catch((error) => {
-            console.log(error)
+            console.log(error);
         });
 }
 const displayCategory = (categoryList) => {
@@ -12,7 +12,6 @@ const displayCategory = (categoryList) => {
 
     // display all category
     categoryList.forEach(category => {
-        
         const categoryDiv = document.createElement('li');
         categoryDiv.classList.add('nav-item');
        
