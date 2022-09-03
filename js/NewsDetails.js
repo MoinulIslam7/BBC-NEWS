@@ -29,15 +29,17 @@ const displayCategoryDetails = (news) => {
         categoryDetailsDiv.innerHTML = `
     <div class="row">
     <div class="col-md-4">
-                    <img src="${category.author.img}" class="img-fluid rounded-start" alt="...">
+                    <img src="${category.thumbnail_url}" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body mb-2">
                       <h5 class="card-title">${category.title}</h5>
+                      <div>
                       <p class="card-text text" >${category.details}</p>
+                      </div>
                     </div>
                     <div class="d-flex  justify-content-evenly">
-                    <img src="${category.thumbnail_url}" class="img-fluid rounded-circle image" alt="...">
+                    <img src="${category.author.img}" class="img-fluid rounded-circle image" alt="...">
                         <div>
                         <h6>Name: ${category.author.name ? category.author.name : "No Name found"}</h6>
                         <p>${category.author.published_date}</p>
