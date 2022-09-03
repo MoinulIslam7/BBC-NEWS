@@ -28,6 +28,7 @@ const displayCategoryDetails = (news) => {
 }
 
 const processData = (news) => {
+    console.log(news);
 
     const categoryDetails = document.getElementById('category-details');
     categoryDetails.textContent = '';
@@ -77,7 +78,7 @@ const processData = (news) => {
     })
     toggleSpinner(false);
     if (count === 0) {
-        countItem.innerText = `No News Found`;
+        countItem.innerText = `No News Found `;
     }
     else {
         countItem.innerText = `${count} News found`
