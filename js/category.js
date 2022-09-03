@@ -2,7 +2,8 @@ const loadCategory = () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayCategory(data.data.news_category));
+        .then(data => displayCategory(data.data.news_category))
+        
 }
 const displayCategory = (categoryList) => {
     const categoryField = document.getElementById('category-list');

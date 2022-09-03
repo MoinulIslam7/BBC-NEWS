@@ -14,7 +14,7 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            white-space: inherit;
+            /* white-space: nowrap; */
         }
 
         .image {
@@ -32,7 +32,7 @@
 
                 <div class="d-flex justify-content-end">
                     <a class="nav-link active m-auto mx-4" aria-current="page" href="#">Home</a>
-                    <a class="nav-link active m-auto mx-4" aria-current="page" href="#">Blog</a>
+                    <a class="nav-link active m-auto mx-4" aria-current="page" href="blog.html">Blog</a>
                 </div>
         </nav>
         <hr>
@@ -62,12 +62,23 @@
         </section>
     </header>
     <main>
+
+         <!-- loader -->
+    <section id="loader" class="d-none">
+        <div style="height: 400px;" class="d-flex justify-content-center align-items-center">
+          <div class="spinner-border text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
+
         <section id="category-details">
 
 
         </section>
 
 
+        
         <section>
             <!-- Modal -->
             <div class="modal fade" id="newsDetailModal" tabindex="-1" aria-labelledby="newsDetailModalLabel"
@@ -90,10 +101,11 @@
         </section>
     </main>
 
-
+    <script src="js/loader.js"></script>
     <script src="js/category.js"></script>
     <script src="js/NewsDetails.js"></script>
     <script src="js/EveryNewsDetails.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>

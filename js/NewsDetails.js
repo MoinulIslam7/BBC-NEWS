@@ -5,7 +5,15 @@ const loadCategoryDetails = (category_id) => {
         .then(data => displayCategoryDetails(data.data))
 }
 
-
+const toggleSpinner = (isLoading) => {
+    const loaderField = document.getElementById('loader');
+    if (isLoading) {
+        loaderField.classList.remove('d-none')
+    }
+    else {
+        loaderField.classList.add('d-none');
+    }
+}
 const displayCategoryDetails = (news) => {
     const categoryDetails = document.getElementById('category-details');
     categoryDetails.textContent = '';
@@ -14,14 +22,10 @@ const displayCategoryDetails = (news) => {
     const countItem = document.getElementById('count-item')
     countItem.innerText = '';
     let count = 0;
-    
+    toggleSpinner(true);
+
 
     news.forEach(category => {
-
-        // console.log(category.total_view)
-        // console.log(Object.keys(category.total_view).sort());
-       
-
         
         const categoryDetailsDiv = document.createElement('div');
         categoryDetailsDiv.classList.add('card');
@@ -57,16 +61,20 @@ const displayCategoryDetails = (news) => {
                     </div>
     </div>
                     `;
+         
 
         categoryDetails.appendChild(categoryDetailsDiv);
         count++;
-
     })
+    toggleSpinner(false);
+   
     if (count === 0) {
         countItem.innerText = `No News Found`;
     }
     else {
         countItem.innerText = `${count} News found`
     }
+
+    
 
 }
