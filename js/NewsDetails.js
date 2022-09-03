@@ -1,20 +1,23 @@
-const loadCategoryDetails = (category_id) =>{
+const loadCategoryDetails = (category_id) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     fetch(url)
-    .then(res => res.json())
-    .then(data => displayCategoryDetails(data.data))
+        .then(res => res.json())
+        .then(data => displayCategoryDetails(data.data))
 }
-const displayCategoryDetails = (news) =>{
+const displayCategoryDetails = (news) => {
     const categoryDetails = document.getElementById('category-details');
     categoryDetails.textContent = '';
-    let count=0;
-    news.forEach(category =>{
+    const countItem = document.getElementById('count-item')
+    countItem.innerText = '';
+    let count = 0;
+    news.forEach(category => {
+        // totalView = category.total_view;
+        // console.log(totalView)
        
-        count++;
         const categoryDetailsDiv = document.createElement('div');
-    categoryDetailsDiv.classList.add('card');
-    categoryDetailsDiv.classList.add('mb-4');
-    categoryDetailsDiv.innerHTML = `
+        categoryDetailsDiv.classList.add('card');
+        categoryDetailsDiv.classList.add('mb-4');
+        categoryDetailsDiv.innerHTML = `
     <div class="row">
     <div class="col-md-4">
                     <img src="${category.author.img}" class="img-fluid rounded-start" alt="...">
@@ -25,6 +28,7 @@ const displayCategoryDetails = (news) =>{
                       <p class="card-text text" >${category.details}</p>
                     </div>
                     <div class="d-flex  justify-content-evenly">
+                    <img src="${category.thumbnail_url}" class="img-fluid rounded-circle image" alt="...">
                         <div>
                         <h6>Name: ${category.author.name ? category.author.name : "No Name found"}</h6>
                         <p>${category.author.published_date}</p>
@@ -36,23 +40,23 @@ const displayCategoryDetails = (news) =>{
                             <p>${category.rating.number}</p>
                         </div>
                         <div>
-                            <button>Button</button>
+                            <button onclick="loadEveryNewsDetails('${category._id}')" >Button</button>
                         </div>
                       </div>
                     </div>
     </div>
                     `;
 
-    categoryDetails.appendChild(categoryDetailsDiv);
+        categoryDetails.appendChild(categoryDetailsDiv);
+        count++;
+
     })
-    const countItem = document.getElementById('count-item')
-    if(count!==0)
-    {
-        countItem.innerText=`${count} items found for category `
+    if (count === 0) {
+        countItem.innerText = `No News Found`;
+       
     }
-    else
-    {
-        countItem.innerText = `No item Found`
+    else {
+        countItem.innerText = `${count} News found`
     }
-    console.log(count);
+
 }
