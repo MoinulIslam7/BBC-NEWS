@@ -14,7 +14,7 @@ const detailsOfNews = (newses) => {
     const newsDetails = document.getElementById('news-details');
     newsDetails.innerHTML = `
     <p>Is trending: ${newses.others_info.is_trending
-        ? newses.others_info.is_trending : 'No result found'}</p>
+        ? newses.others_info.is_trending : 'false'}</p>
     <p>Is todays pick: ${newses.others_info.is_todays_pick
         ? newses.others_info.is_todays_pick : 'false'}</p>
     <p>Rating Badge: ${newses.rating.badge
