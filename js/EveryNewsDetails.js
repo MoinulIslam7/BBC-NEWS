@@ -3,6 +3,9 @@ const loadEveryNewsDetails = (news_id) => {
     fetch(url)
         .then(res => res.json())
         .then(data => detailsOfNews(data.data[0]))
+        .catch((error) => {
+            console.log(error)
+        });
 }
 
 const detailsOfNews = (newses) => {

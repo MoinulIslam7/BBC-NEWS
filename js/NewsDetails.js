@@ -3,6 +3,9 @@ const loadCategoryDetails = (category_id) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategoryDetails(data.data))
+        .catch((error) => {
+            console.log(error)
+        });
 }
 
 const toggleSpinner = (isLoading) => {
