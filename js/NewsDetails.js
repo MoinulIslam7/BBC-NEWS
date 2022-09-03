@@ -4,16 +4,25 @@ const loadCategoryDetails = (category_id) => {
         .then(res => res.json())
         .then(data => displayCategoryDetails(data.data))
 }
+
+
 const displayCategoryDetails = (news) => {
     const categoryDetails = document.getElementById('category-details');
     categoryDetails.textContent = '';
+
+
     const countItem = document.getElementById('count-item')
     countItem.innerText = '';
     let count = 0;
+    
+
     news.forEach(category => {
-        // totalView = category.total_view;
-        // console.log(totalView)
+
+        // console.log(category.total_view)
+        // console.log(Object.keys(category.total_view).sort());
        
+
+        
         const categoryDetailsDiv = document.createElement('div');
         categoryDetailsDiv.classList.add('card');
         categoryDetailsDiv.classList.add('mb-4');
@@ -40,7 +49,7 @@ const displayCategoryDetails = (news) => {
                             <p>${category.rating.number}</p>
                         </div>
                         <div>
-                            <button onclick="loadEveryNewsDetails('${category._id}')" >Button</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailModal "onclick="loadEveryNewsDetails('${category._id}')" >Details</button>
                         </div>
                       </div>
                     </div>
@@ -53,7 +62,6 @@ const displayCategoryDetails = (news) => {
     })
     if (count === 0) {
         countItem.innerText = `No News Found`;
-       
     }
     else {
         countItem.innerText = `${count} News found`
